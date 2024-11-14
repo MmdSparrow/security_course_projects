@@ -21,7 +21,7 @@ import ssl
 
 def start_ssl_server():
     context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
-    context.load_cert_chain(certfile="server_cert.pem", keyfile="server_key.pem")
+    context.load_cert_chain(certfile="../../server_cert.pem", keyfile="../../server_key.pem")
 
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(('localhost', 8443))
