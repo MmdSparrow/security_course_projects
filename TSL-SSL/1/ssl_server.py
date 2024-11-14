@@ -1,21 +1,3 @@
-# import socket
-# import ssl
-
-# context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-# context.load_cert_chain(certfile='server.pem', keyfile='server.key')
-
-# server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-# server_socket.bind(('localhost', 4433))
-# server_socket.listen(1)
-
-# with context.wrap_socket(server_socket, server_side=True) as tls_socket:
-#     print("Server is listening...")
-#     conn, addr = tls_socket.accept()
-#     print(f"Connection from {addr}")
-#     conn.send(b"Hello over TLS")
-#     conn.close()
-
-
 import socket
 import ssl
 
@@ -28,12 +10,13 @@ def start_ssl_server():
     server_socket.listen(1)
     print("Server listening on port 8443...")
 
-    with context.wrap_socket(server_socket, server_side=True) as secure_socket:
-        conn, addr = secure_socket.accept()
-        print("Connection from:", addr)
-        data = conn.recv(1024).decode()
-        print("Received:", data)
-        conn.sendall(b"Hello from the secure server!")
-        conn.close()
+    while True:
+        with context.wrap_socket(server_socket, server_side=True) as secure_socket:
+            conn, addr = secure_socket.accept()
+            print("Connection from:", addr)
+            data = conn.recv(1024).decode()
+            print("Received:", data)
+            conn.sendall(b"Hello from the secure server!")
+    conn.close()
 
 start_ssl_server()
