@@ -1,0 +1,12 @@
+pass for creating server_key.pem: sparrow
+
+requested information in server_csr.pem
+Country Name (2 letter code) [AU]:IR
+State or Province Name (full name) [Some-State]:Tehran
+Locality Name (eg, city) []:Tehran
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Amirkabir        
+Organizational Unit Name (eg, section) []:CE
+Common Name (e.g. server FQDN or YOUR name) []:Sayed
+Email Address []:esmirk.137@gmail.com
+A challenge password []:password
+An optional company name []:Amirkabir
