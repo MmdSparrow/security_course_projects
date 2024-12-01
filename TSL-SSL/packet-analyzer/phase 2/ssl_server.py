@@ -17,6 +17,5 @@ def start_ssl_server():
             data = conn.recv(1024).decode()
             print("Received:", data)
             conn.sendall(b"Hello from the secure server!")
-    conn.close()
 
 start_ssl_server()
